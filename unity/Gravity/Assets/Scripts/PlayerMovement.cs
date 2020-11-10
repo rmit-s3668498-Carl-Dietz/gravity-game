@@ -5,25 +5,24 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 2f;
+    public float rotation;
 
-    Rigidbody2D rigidBody;
+    public float speed;
 
-    void Awake()
+    public Rigidbody2D rigidBody;
+    
+    Vector2 movement;
+
+    void Update()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
     }
 
     void FixedUpdate()
     {
-        Vector3 input = Vector3.zero;
-        input.x = Input.GetAxisRaw("Horizontal");
-        input.y = Input.GetAxisRaw("Vertical");
+        rigidBody.rotation -= (movement.x*(rotation * Time.fixedDeltaTime));
 
-        Vector3 direction = input.normalized;
-
-        Vector3 movement = direction * speed * Time.fixedDeltaTime;
-
-        rigidBody.MovePosition(transform.position + movement);
+        rigidBody.transform.position += movement.y*(transform.right * speed * Time.deltaTime);
     }
 }
