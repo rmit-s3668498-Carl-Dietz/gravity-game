@@ -23,6 +23,11 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidBody.rotation -= (movement.x*(rotation * Time.fixedDeltaTime));
 
-        rigidBody.transform.position += movement.y*(transform.right * speed * Time.deltaTime);
+        //rigidBody.transform.position += movement.y*(transform.right * speed * Time.deltaTime);
+        if(movement.y > 0)
+        {
+            rigidBody.AddRelativeForce(movement);
+        }
+
     }
 }

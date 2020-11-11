@@ -324,5 +324,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: 400
-  speed: 4
+  speed: 50
   rigidBody: {fileID: 786270578}
