@@ -2,17 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class NewBehaviourScript : MonoBehaviour
+public class Gravity : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Transform[] planets;
+
+    public Rigidbody2D rigidBody;
+
+    public float gravitationalForce;
+    private Vector3 direction;
     void Start()
-    {
-        
+    {   
+        direction = Vector3.zero;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate ()
     {
-        
+        for (int i = 0; i < planets.Length; i++) 
+        {
+            direction = (planets[i].position-transform.position).normalized;
+            rigidBody.AddForce(direction*gravitationalForce);  
+        }  
     }
 }
