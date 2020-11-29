@@ -235,6 +235,7 @@ GameObject:
   - component: {fileID: 636843235}
   - component: {fileID: 636843239}
   - component: {fileID: 636843240}
+  - component: {fileID: 636843241}
   m_Layer: 0
   m_Name: rocket
   m_TagString: Untagged
@@ -376,6 +377,20 @@ MonoBehaviour:
   - {fileID: 1107753381}
   rigidBody: {fileID: 636843236}
   gravitationalForce: 1
+--- !u!114 &636843241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636843234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d4d968efc9b87c47810282c7fba0297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trail: {fileID: 8084843816745591109, guid: e662962dcda193a46b5c48f59617e619, type: 3}
+  rigidBody: {fileID: 636843236}
 --- !u!1 &1086276785
 GameObject:
   m_ObjectHideFlags: 0
